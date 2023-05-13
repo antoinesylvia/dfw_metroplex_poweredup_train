@@ -21,7 +21,7 @@ TikTok Demo on Test Track: https://www.tiktok.com/@cyber_toine/video/72273648835
 TikTok Demo on outdoor HotWheel/LegoLand Track: https://www.tiktok.com/@cyber_toine/video/7229516604227276074
 
 --------------
-Project 3 - Coming early summer, will leverage a Raspberry Pi and a Raspberry Pi Build HAT instead of a Lego Powered Hub. Same idea as project number 2 with 2 locomotives working together but it will be direct instead of Bluetooth, the HATs support connection of up to 4 Powered Up connections unlike the Hubs which support only 2. Users going this route might need to invested in a $25 Powered Up extension cable for at least one of the motors.
+Project 3 - Coming early summer, will leverage a Raspberry Pi and a Raspberry Pi Build HAT instead of a Lego Powered Hub. Same idea as project #2, with 2 locomotives working together but it will be direct instead of Bluetooth, the HATs support connection of up to 4 Powered Up connections unlike the Hubs which support only 2. Users going this route might need to invested in a $25 Powered Up extension cable for at least one of the motors.
 
 --------------
 Lego Track Color Layout 
