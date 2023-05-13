@@ -12,7 +12,7 @@ TikTok Demo on Test Track: https://www.tiktok.com/@cyber_toine/video/72247262230
 
 TikTok Demo on outdoor HotWheel/LegoLand Track: https://www.tiktok.com/@cyber_toine/video/7225054602733915435
 
-Project 2 - Leverages/requires a beta Pybricks firmware which enables hub to hub communication to Bluetooth. I was intriguied to see if I could get this going, basically each locomotive has a hub and motor. They work in together, the main hub (code built 85% in project 1) sends speed and direction to the 2nd locomotive via Bluetooth over a dedicated topic. There are some bugs at the firmware level, so that's out of my control but for the most part it's 95% functional.
+Project 2 - Leverages/requires a beta Pybricks firmware which enables hub to hub communication to Bluetooth. I was intriguied to see if I could get this going, basically each locomotive has a hub and motor. They work in together, the main hub (code built 85% in project 1) sends speed and direction to the 2nd locomotive via Bluetooth over a dedicated topic. There are some bugs at the firmware level, so that's out of my control but for the most part it's 95% functional. This requires a user to run code on each hub, you can test it out using https://beta.pybricks.com/ (linked to hub #1) and https://pybricks.com/ (linked to hub #2) with your computer. When you are done testing, remove your computer from the equation as suggested by Pybricks developers for the beta. Creates too much noise over Bluetooth.
 
 TikTok Demo on Test Track: https://www.tiktok.com/@cyber_toine/video/7227364883552013614
 
