@@ -1,0 +1,32 @@
+Green:
+
+Current HSV: Color(h=135, s=89, v=43)
+Current HSV: Color(h=136, s=90, v=42)
+Current HSV: Color(h=136, s=90, v=43)
+Current HSV: Color(h=137, s=89, v=43)
+
+red:
+
+Current HSV: Color(h=357, s=97, v=67)
+Current HSV: Color(h=358, s=96, v=67)
+Current HSV: Color(h=359, s=96, v=67)
+Current HSV: Color(h=359, s=97, v=68)
+
+yellow:
+
+Current HSV: Color(h=52, s=95, v=92)
+Current HSV: Color(h=53, s=95, v=93)
+Current HSV: Color(h=53, s=96, v=92)
+
+blue:
+
+Current HSV: Color(h=213, s=94, v=64)
+Current HSV: Color(h=214, s=95, v=64)
+Current HSV: Color(h=215, s=94, v=62)
+Current HSV: Color(h=215, s=94, v=64)
+Current HSV: Color(h=215, s=95, v=64)
+Current HSV: Color(h=216, s=94, v=64)
+Current HSV: Color(h=218, s=94, v=64)
+
+
+
