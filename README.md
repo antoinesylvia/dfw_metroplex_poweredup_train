@@ -5,6 +5,7 @@ This is a side project I recently accomplished for my kids (2 & 4). Wrote some c
 As I mentioned the Color and distance sensor is mounted under the train, instead of leveraging default color values, we built custom color ranges for each of the 4 colors via HSV data collected by the sensor (establish upper and lower color thresholds). We placed white lego plates down the center help prevent color misreads between stations as well as building a semi enclosure around the mounted sensor as an additional measure. Code is documented throughout. 
 
 Train can start on any of the 4 colors and know which way to head next. This page will hold 2 of the projects I've been working on since early April 2023. Click on each folder name for more information in another readme file. 
+
 -----------
 Project 1 - Utilizes only 1 Powered Up hub with 1 motor installed in a locomative.
  
