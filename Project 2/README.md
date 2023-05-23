@@ -38,11 +38,10 @@ My HSV low and high thresholds per color were established primarily from sample 
 
 How to use (Hub 2, secondary):
 
-1. Install the "Beta" Pybricks firmware to your Lego Hub (required as of May 2023 to make use of the hub to hub communication over bluetooth). Go to https://code.pybricks.com/ and click on the gear at the top left then hit "install Pybricks firmware". Follow the steps provided by the website.
+1. Install the "Beta" Pybricks firmware to your Lego Hub (required as of May 2023 to make use of the hub to hub communication over bluetooth). Go to https://beta.pybricks.com and click on the gear at the top left then hit "install Pybricks firmware", now select "advanced" and import the beta firmware from: https://github.com/pybricks/pybricks-projects/blob/master/tutorials/wireless/hub-to-hub/broadcast/cityhub-firmware-build-2178.zip. Follow the steps provided by the website after import.
 2. Once complete, hit the "+" sign and create a new file (don't use a template). Paste in the code located here in project 2 (Hub to Hub): https://github.com/antoinesylvia/dfw_metroplex_poweredup_train/blob/main/Project%202/train_2_hubs_support_hub(load_to_pybricks).py
-
-
-4. Once all the colors are squared away, and the code has been loaded onto the hub, simply press the "play" button on the website UI or you can also hit the physical hub power button once to execute the code. Hit the "stop" button in the UI or hit the power button once (after it's going) if you want prevent further execution of the code.
+3. Once code has been loaded onto the secondary city hub, simply press the "play" on the main hub (via website https://pybricks.com or physical button) then immediately press the "play" on the main hub (via website https://beta.pybricks.com or physical button). Hit the "stop" button in the UI or hit the power button once (after it's going) for both hubs if you want prevent further execution of the code.
+4. Once everything is optimized in terms of the code and the function of the broadcasting between the two hubs, be sure to remove the use of the computer. This was advised from the Pybricks project due to noise issues, the best approach is using the physical buttons on the city hubs (hit the main hub once after it's powered on, and do the same for the secondary hub).
 --------------
 
 Lego Track Color Layout 
