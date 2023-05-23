@@ -31,7 +31,8 @@ How to use:
     
 My HSV low and high thresholds per color were established primarily from sample data I collected using debug_mode (set as true) for the color sensor: https://github.com/antoinesylvia/dfw_metroplex_poweredup_train/blob/main/zz_hsv_sample_data/hsv_sample_values_debug_mode.txt
 
-4. Once all the colors are squared away, and the code has been loaded onto the hub, simply press the "play" button on the website UI or you can also hit the physical hub power button once to execute the code. Top stop hit the "stop" button in the UI or hit the power button once (after it's going). 
+4. Once all the colors are squared away, and the code has been loaded onto the hub, simply press the "play" button on the website UI or you can also hit the physical hub power button once to execute the code. Hit the "stop" button in the UI or hit the power button once (after it's going) if you want prevent further execution of the code.
+
 --------------
 Lego Track Color Layout 
 
