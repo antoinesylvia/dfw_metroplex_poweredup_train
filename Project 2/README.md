@@ -20,10 +20,10 @@ TikTok Demo on Test Track: https://www.tiktok.com/@cyber_toine/video/72273648835
 TikTok Demo on outdoor HotWheel/LegoLand Track: https://www.tiktok.com/@cyber_toine/video/7229516604227276074
 
 -----------
-How to use:
+How to use (Hub 1, main):
 
 1. Install the Pybricks firmware to your Lego Hub. Go to https://code.pybricks.com/ and click on the gear at the top left then hit "install Pybricks firmware". Follow the steps provided by the website.
-2. Once complete, hit the "+" sign and create a new file (don't use a template). Paste in the code located here in project 1 (1 Hub only function): https://github.com/antoinesylvia/dfw_metroplex_poweredup_train/blob/main/Project%201/train_1_hub_main(load_to_pybricks).py
+2. Once complete, hit the "+" sign and create a new file (don't use a template). Paste in the code located here in project 1 (1 Hub only function): https://github.com/antoinesylvia/dfw_metroplex_poweredup_train/blob/main/Project%202/train_2_hubs_main_hub(load_to_pybricks).py
 3. The only thing you must do is customize the color of the stations if you aren't using any of the 4 colors I have (red, blue, green and yellow). There's "debug_mode" function that will collect and output custom HSV color values (within the terminal output in Pybricks website). You can then use this information and add it to color_data within the get_sensor_color function. Use this approach to lessen the chance of color misreads on the track (default color readings were replaced by HSV values representing better accuracy).  Each set of HSV values consists of a lower bound and an upper bound, which define a range of colors that the algorithm will consider as "BLUE, RED, YELLOW or GREEN". 
 
         "BLUE": (((212, 92, 60), (218, 95, 66)), ((240, 100, 100), (240, 100, 100))), #2 HSV Sets
@@ -33,7 +33,7 @@ How to use:
     
 My HSV low and high thresholds per color were established primarily from sample data I collected using debug_mode (set as true) for the color sensor: https://github.com/antoinesylvia/dfw_metroplex_poweredup_train/blob/main/zz_hsv_sample_data/hsv_sample_values_debug_mode.txt
 
-4. Once all the colors are squared away, and the code has been loaded onto the hub, simply press the "play" button on the website UI or you can also hit the physical hub power button once to execute the code. Top stop hit the "stop" button in the UI or hit the power button once (after it's going). 
+4. Once all the colors are squared away, and the code has been loaded onto the hub, simply press the "play" button on the website UI or you can also hit the physical hub power button once to execute the code. Hit the "stop" button in the UI or hit the power button once (after it's going) if you want prevent further execution of the code.
 --------------
 Lego Track Color Layout 
 
