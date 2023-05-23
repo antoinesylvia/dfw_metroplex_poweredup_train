@@ -20,4 +20,4 @@ How to use:
         "YELLOW": (((25, 50, 50), (35, 100, 100)), ((49, 96, 90), (53, 97, 92)), ((60, 50, 50), (65, 100, 100))), #3 HSV Sets
     }
     
-
+4. Once all the colors are squared away, and the code has been loaded onto the hub, simply press the "play" button on the website UI or you can also hit the physical hub power button once to execute the code. Top stop hit the "stop" button in the UI or hit the power button once (after it's going). 
