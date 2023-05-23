@@ -9,7 +9,7 @@ As I mentioned the Color and distance sensor is mounted under the train, instead
 Train can start on any of the 4 colors and know which way to head next. This page focus on Project #1, started in early April 2023. 
 
 -----------
-# Project 1 - Utilizes only 1 Powered Up hub with 1 motor installed in a locomative.
+# Project 1 - 1 Powered Up hub and 1 motor, installed in a locomative.
 
 ![p1](https://github.com/antoinesylvia/dfw_metroplex_poweredup_train/blob/8380397289f0077545aec01b9a945f6d8fc9f5ff/zz_train_demo/project1.gif)
  
