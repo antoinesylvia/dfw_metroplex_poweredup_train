@@ -13,8 +13,7 @@ How to use:
 2. Once complete, hit the "+" sign and create a new file (don't use a template). Paste in the code located here in project 1 (1 Hub only function): https://github.com/antoinesylvia/dfw_metroplex_poweredup_train/blob/main/Project%201/train_1_hub_main(load_to_pybricks).py
 3. The only thing you must do is customize the color of the stations if you aren't using any of the 4 colors I have (red, blue, green and yellow). 
 
-Note: There's "debug_mode" function that will collect and output custom HSV color values (within the terminal output in Pybricks website). You can then use this information and add it to color_data within the get_sensor_color function. Use this approach to lessen the chance of color misreads on the track.  
-Note: Each set of HSV values consists of a lower bound and an upper bound, which define a range of colors that the algorithm will consider as "BLUE". Using the sensor readings, the default color readings were replaced by HSV values representing better accuracy for my specific lego pieces.  
+Note: There's "debug_mode" function that will collect and output custom HSV color values (within the terminal output in Pybricks website). You can then use this information and add it to color_data within the get_sensor_color function. Use this approach to lessen the chance of color misreads on the track.  Each set of HSV values consists of a lower bound and an upper bound, which define a range of colors that the algorithm will consider as "BLUE". Using the sensor readings, the default color readings were replaced by HSV values representing better accuracy for my specific lego pieces.  
 
     color_data = {
         "BLUE": (((212, 92, 60), (218, 95, 66)), ((240, 100, 100), (240, 100, 100))), #2 HSV Sets
