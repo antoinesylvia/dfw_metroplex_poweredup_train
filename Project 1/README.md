@@ -18,6 +18,7 @@ TikTok Demo on Test Track: https://www.tiktok.com/@cyber_toine/video/72247262230
 TikTok Demo on outdoor HotWheel/LegoLand Track: https://www.tiktok.com/@cyber_toine/video/7225054602733915435
 
 ![p7](https://github.com/antoinesylvia/dfw_metroplex_poweredup_train/blob/e925099dfa361e17136ee8cde5be219d2045f652/Project%201/colordistance.png)
+<br>
 Color and Distance sensor required (place at the bottom of the locomotive and build a small enclosure around it to boost read effectiveness).
 
 -----------
