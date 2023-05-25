@@ -60,7 +60,7 @@ sensor = ColorDistanceSensor(Port.A)
 # Initialize the broadcast object with a unique topic
 radio = Broadcast(topics=["train"])
 
-# Define a function to send the motor speed to the slave hub
+# Define a function to send the motor speed to the support hub
 def send_speed(speed, direction=None):
     if direction is None:
         radio.send("train", speed)
@@ -93,7 +93,7 @@ def finish(interhub_communication=True):
     debug_mode = True #Prints read time sensor readings (HSV and Color), useful to collect and build our your own color_map with custom colors.
     debug2_mode = True #Will let you know the detected color vs. expected color.
     debug3_mode = True #Will let you know if an exact HSV match was found, if not fall back to a default color.
-    debug4_mode = True #Prints broadcast topic that slave should listen to.
+    debug4_mode = True #Prints broadcast topic that support should listen to.
     debug_interval = 35
     debug2_interval = 35
     debug3_interval = 35
@@ -104,17 +104,17 @@ def finish(interhub_communication=True):
     if interhub_communication:
         radio = Broadcast(topics=["train"])
 
-        # Define a function to send the motor speed & direction to the slave hub. Here we send the topic along with a tuple containing the speed and direction.  
+        # Define a function to send the motor speed & direction to the support hub. Here we send the topic along with a tuple containing the speed and direction.  
         #def send_speed(speed, direction):
             #radio.send("train", (speed, direction))
 
-        # Modify the move_train() function to send the speed to the slave hub
+        # Modify the move_train() function to send the speed to the support hub
         def move_train(speed):
             motor.dc(speed)
             send_speed(speed)
            
 
-        # Modify the stop_train() function to send a stop command to the slave hub
+        # Modify the stop_train() function to send a stop command to the support hub
         def stop_train():
             motor.stop()
             send_speed(0)
@@ -126,7 +126,7 @@ def finish(interhub_communication=True):
         def stop_train():
             motor.stop()
 
-   # Debugging: Print the broadcast topic that the slave hub should be looking for
+   # Debugging: Print the broadcast topic that the support hub should be looking for
     if debug4_mode:
         print(f"2nd hub should listen to topic (bluetooth): train")
 
@@ -161,10 +161,10 @@ def finish(interhub_communication=True):
         if debug2_mode and iteration_count % debug2_interval == 0:
             print(f"Detected color: {detected_color}, Expected color: {expected_color}")
         
-       # Debugging: Print the broadcast topic that the slave hub should be listening for
+       # Debugging: Print the broadcast topic that the support hub should be listening for
         if debug4_mode and iteration_count % debug4_interval == 0:
             radio = Broadcast(topics=["train"])
-            print("Checking if slave hub is listening...")
+            print("Checking if support hub is listening...")
             print(radio)
             print(dir(radio))
 
@@ -190,7 +190,7 @@ def finish(interhub_communication=True):
             print_detected_color(expected_color)
             last_printed_color = expected_color
 
-                # If inter-hub communication is enabled, send the detected color to the slave hub
+                # If inter-hub communication is enabled, send the detected color to the support hub
         if interhub_communication:
             radio.send("train", max_speed * direction)
 
