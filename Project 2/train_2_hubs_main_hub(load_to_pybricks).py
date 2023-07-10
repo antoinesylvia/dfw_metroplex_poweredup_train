@@ -15,10 +15,10 @@ def get_sensor_color(sensor):
 	# Build an enclosure around the sensor under the train to help with accuracy of readings, I used black legos.
 	# Use white Lego plates down the center of the train track to help prevent the sensor from misreading colors. Between my stations, my sensor reads white which triggers no action. 
     color_data = {
-        "BLUE": (((212, 92, 60), (218, 95, 66)), ((240, 100, 100), (240, 100, 100))), #2 HSV Sets
-        "RED": (((0, 50, 50), (5, 100, 100)), ((356, 95, 65), (0, 97, 67))), #2 HSV Sets
-        "GREEN": (((110, 50, 50), (130, 100, 100)), ((213, 92, 60), (218, 95, 64))), #2 HSV Sets
-        "YELLOW": (((25, 50, 50), (35, 100, 100)), ((49, 96, 90), (53, 97, 92)), ((60, 50, 50), (65, 100, 100))), #3 HSV Sets
+        "BLUE": (((212, 92, 60), (218, 95, 66)), ((240, 100, 100), (240, 100, 100))), #2 HSV sets for detection of blue plates....
+        "RED": (((0, 50, 50), (5, 100, 100)), ((356, 95, 65), (0, 97, 67))), #2 HSV sets for detection of red plates....
+        "GREEN": (((110, 50, 50), (130, 100, 100)), ((213, 92, 60), (218, 95, 64))), #2 HSV sets for detection of green lego  plates
+        "YELLOW": (((25, 50, 50), (35, 100, 100)), ((49, 96, 90), (53, 97, 92)), ((60, 50, 50), (65, 100, 100))), #3 HSV sets for detection of yellow lego  plates...
     }
 
     # Get the color object and its HSV value
@@ -89,7 +89,7 @@ def finish(interhub_communication=True):
     train_stops = ["GREEN", "BLUE", "RED", "YELLOW"] #Set the order of your station colors here, you need at least 2, my order: (GREEN <-->BLUE <-->RED <-->Yellow). You can start the train from any color once set!
     direction = 1 #1 is forward and -1 is backwards
     stop_duration = 5000 #stop time in milliseconds at each station
-    max_speed = 50 #RPM
+    max_speed = 70 #RPM
     debug_mode = True #Prints read time sensor readings (HSV and Color), useful to collect and build our your own color_map with custom colors.
     debug2_mode = True #Will let you know the detected color vs. expected color.
     debug3_mode = True #Will let you know if an exact HSV match was found, if not fall back to a default color.
@@ -136,10 +136,12 @@ def finish(interhub_communication=True):
         print(f"Unable to determine the starting station color. Defaulting to the first station in the list.")
         start_color = train_stops[0]
 
+
     # Set the current stop to the starting color
     current_stop = train_stops.index(start_color)
     last_printed_color = None
     iteration_count = 0
+    consecutive_matches = 0  # Counter for consecutive color matches this will help with dealing with false positives inbetween stations for station colors. Default is 3 which is set below. 
 
     # Keep looping until the program is stopped manually
     while True:
@@ -160,22 +162,22 @@ def finish(interhub_communication=True):
         # Debugging: print the detected color and expected color every 'debug2_interval' iterations
         if debug2_mode and iteration_count % debug2_interval == 0:
             print(f"Detected color: {detected_color}, Expected color: {expected_color}")
-        
-       # Debugging: Print the broadcast topic that the support hub should be listening for
+
+        # Debugging: Print the broadcast topic that the support hub should be listening for
         if debug4_mode and iteration_count % debug4_interval == 0:
             radio = Broadcast(topics=["train"])
             print("Checking if support hub is listening...")
             print(radio)
             print(dir(radio))
 
-       # Wait for a message on the "train" topic to validate that data was sent
+            # Wait for a message on the "train" topic to validate that data was sent
             message = radio.receive("train")
             if message is None:
                 print("No message received on 'train' topic.")
             else:
                 # Check if message is a tuple
                 if isinstance(message, tuple):
-                # Extract the speed and direction from the message tuple
+                    # Extract the speed and direction from the message tuple
                     speed, direction = message
                     print(f"Data successfully received on 'train' topic: speed={speed}, direction={direction}")
                 else:
@@ -184,24 +186,26 @@ def finish(interhub_communication=True):
                     direction = 1
                     print(f"Data successfully received on 'train' topic: speed={speed}, direction={direction}")
 
-       
         # Print the expected color if it has changed since the last iteration
         if expected_color != last_printed_color:
             print_detected_color(expected_color)
             last_printed_color = expected_color
 
-                # If inter-hub communication is enabled, send the detected color to the support hub
+        # If inter-hub communication is enabled, send the detected color to the support hub
         if interhub_communication:
             radio.send("train", max_speed * direction)
 
-       
-        # If the detected color matches the expected color, stop the train and move to the next stop
+        # If the detected color matches the expected color, increment the consecutive matches counter
         if detected_color == expected_color:
-            print_found_color(detected_color)
+            consecutive_matches += 1
+        else:
+            consecutive_matches = 0
 
+        # If the consecutive matches reach three, stop the train and move to the next stop
+        if consecutive_matches == 3:
+            print_found_color(detected_color)
             stop_train()
             wait(stop_duration)
-
             next_stop_info = get_next_stop_index(current_stop, train_stops, direction)
             if next_stop_info is None:
                 direction = -direction
@@ -209,10 +213,8 @@ def finish(interhub_communication=True):
             else:
                 next_stop_index, direction = next_stop_info
             current_stop = next_stop_index
-
-            print(f"Next Stop, {train_stops[current_stop]}")
-
-            move_train(max_speed * direction)
+            print(f"Next Stop: {train_stops[current_stop]}")
+            consecutive_matches = 0  # Reset the consecutive matches counter
         else:
             move_train(max_speed * direction)
 
@@ -220,7 +222,6 @@ def finish(interhub_communication=True):
         wait(color_check_interval)
 
     stop_train()
-
 
 
 if __name__ == "__main__":
