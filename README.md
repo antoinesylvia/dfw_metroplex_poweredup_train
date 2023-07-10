@@ -37,7 +37,7 @@ Lego Track Color Layout
 Yellow <--> Red <--> Blue <--> Green
 
 --------------
-Lego Track Colors (HSV Color Values)
+Lego Track Colors (HSV value ranges per color for each of the 4 Lego plates used to represent stations. This data was collected from color sensor in 3 different lightening scenarios to cover the most ground possible for each of the 4 colors. )
 
 * Yellow: (((25, 50, 50), (35, 100, 100)), ((49, 96, 90), (53, 97, 92)), ((60, 50, 50), (65, 100, 100))) #Three HSV sets for detection of yellow lego plates...
 * Red: (((0, 50, 50), (5, 100, 100)), ((356, 95, 65), (0, 97, 67))) #Two HSV sets for detection of red plates....
