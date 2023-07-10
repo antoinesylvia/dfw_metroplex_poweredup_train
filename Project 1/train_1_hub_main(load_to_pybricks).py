@@ -66,14 +66,14 @@ def print_found_color(color):
     print(f"Found color: {color}")
 	
 def finish():
-    train_stops = ["GREEN", "BLUE", "RED", "YELLOW"] #Set the order of your station colors here, you need at least 2, my order: (GREEN <-->BLUE <-->RED <-->Yellow). You can start the train from any color once set!
-    direction = 1 #this number moves the train forward, -1 moves if backward.
-    stop_duration = 5000 #stop time in milliseconds at each station
-    max_speed = 50 #RPM
-    debug_mode = True #Prints read time sensor readings (HSV and Color), useful to collect and build our your own color_map with custom colors.
-    debug2_mode = True #Will let you know the detected color vs. expected color.
-    debug3_mode = True #Will let you know if an exact HSV match was found, if not fall back to a default color.
-    debug_interval = 35 #intervals, in units of time.
+    train_stops = ["GREEN", "BLUE", "RED", "YELLOW"]  # Set the order of your station colors here
+    direction = 1  # this number moves the train forward, -1 moves it backward.
+    stop_duration = 5000  # stop time in milliseconds at each station
+    max_speed = 50  # RPM
+    debug_mode = True  # Prints real-time sensor readings (HSV and Color)
+    debug2_mode = True  # Prints the detected color vs. expected color
+    debug3_mode = True  # Prints whether an exact HSV match was found or not
+    debug_interval = 35  # intervals, in units of time
     debug2_interval = 35
     debug3_interval = 35
     color_check_interval = 100
@@ -88,6 +88,7 @@ def finish():
     current_stop = train_stops.index(start_color)
     last_printed_color = None
     iteration_count = 0
+    consecutive_matches = 0  # Counter for consecutive color matches this will help with dealing with false positives inbetween stations for station colors. Default is 3 which is set below. 
 
     # Keep looping until the program is stopped manually
     while True:
@@ -114,8 +115,14 @@ def finish():
             print_detected_color(expected_color)
             last_printed_color = expected_color
 
-        # If the detected color matches the expected color, stop the train and move to the next stop
+        # If the detected color matches the expected color, increment the consecutive matches counter
         if detected_color == expected_color:
+            consecutive_matches += 1
+        else:
+            consecutive_matches = 0
+
+        # If the consecutive matches reach three, stop the train and move to the next stop
+        if consecutive_matches == 3:
             print_found_color(detected_color)
 
             stop_train()
@@ -129,9 +136,9 @@ def finish():
                 next_stop_index, direction = next_stop_info
             current_stop = next_stop_index
 
-            print(f"Next Stop, {train_stops[current_stop]}")
+            print(f"Next Stop: {train_stops[current_stop]}")
 
-            move_train(max_speed * direction)
+            consecutive_matches = 0  # Reset the consecutive matches counter
         else:
             move_train(max_speed * direction)
 
