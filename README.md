@@ -35,6 +35,7 @@ Project 3 - Coming early summer, will leverage a Raspberry Pi and a Raspberry Pi
 Lego Track Color Layout 
 
 Yellow <--> Red <--> Blue <--> Green
+
 --------------
 Lego Track Color Layout (HSV Color Values)
 
