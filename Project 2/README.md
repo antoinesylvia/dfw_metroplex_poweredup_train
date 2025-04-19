@@ -52,6 +52,7 @@ Note: There's still lingering issues at the firmware level for this beta which m
 (https://pybricks.com/projects/tutorials/wireless/hub-to-hub/broadcast/)
 (https://github.com/orgs/pybricks/discussions/2002)
 (https://github.com/pybricks/pybricks-micropython/pull/158)
+(https://pybricks.com/project/hub-to-hub-communication/)
 --------------
 
 Lego Track Color Layout 
