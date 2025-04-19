@@ -48,6 +48,10 @@ How to use (Hub 2, secondary):
 4. Once everything is optimized in terms of the code and the function of the broadcasting between the two hubs, be sure to remove the use of the computer. This was advised from the Pybricks project due to noise issues, the best approach is using the physical buttons on the city hubs (hit the main hub once after it's powered on, and do the same for the secondary hub).
 
 Note: There's still lingering issues at the firmware level for this beta which might result in communication issues and occasional run-offs. Project leaders for Pybicks cite issues with the bluetooth chip itself and how data is being presented. These issues don't exist in project 1 (1 Hub). 
+
+![p8](https://pybricks.com/projects/tutorials/wireless/hub-to-hub/broadcast/)
+![p9](https://github.com/orgs/pybricks/discussions/2002)
+![p7](https://github.com/pybricks/pybricks-micropython/pull/158)
 --------------
 
 Lego Track Color Layout 
