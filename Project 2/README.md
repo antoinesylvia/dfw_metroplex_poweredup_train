@@ -49,9 +49,9 @@ How to use (Hub 2, secondary):
 
 Note: There's still lingering issues at the firmware level for this beta which might result in communication issues and occasional run-offs. Project leaders for Pybicks cite issues with the bluetooth chip itself and how data is being presented. These issues don't exist in project 1 (1 Hub). 
 
-![p8](https://pybricks.com/projects/tutorials/wireless/hub-to-hub/broadcast/)
-![p9](https://github.com/orgs/pybricks/discussions/2002)
-![p7](https://github.com/pybricks/pybricks-micropython/pull/158)
+(https://pybricks.com/projects/tutorials/wireless/hub-to-hub/broadcast/)
+(https://github.com/orgs/pybricks/discussions/2002)
+(https://github.com/pybricks/pybricks-micropython/pull/158)
 --------------
 
 Lego Track Color Layout 
