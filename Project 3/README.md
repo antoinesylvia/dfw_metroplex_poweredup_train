@@ -13,3 +13,79 @@ Started working on the PoweredUp Train remote, 88010. Created two scripts (lego_
 - https://github.com/DanieleBenedettelli/TechnicMoveHub/blob/main/LEGO%20Technic%2042176%20RC%20Handset%2088010.py
 - https://github.com/pybricks/technical-info/blob/master/assigned-numbers.md
 
+# LEGO 88010 Remote — Debugger and Button Parser
+
+This project provides a simple Python script to connect to a LEGO 88010 Handset remote (also known as the Powered Up Remote) and read button presses using BLE (Bluetooth Low Energy).
+
+---
+
+## 🚦 How It Works
+
+### 1️ - Connect to the Remote
+
+- Scan or use a saved Bluetooth address to connect to the LEGO 88010 remote.
+- Establish a BLE connection to the device.
+
+### 2️ - Discover Services and Characteristics
+
+- Verify correct **Service UUID** and **Characteristic UUID** exist.
+- Print detected services for validation.
+
+### 3️ - Enable Notifications (CRITICAL)
+
+- Send `0x41` ("Port Input Format Setup") command.
+- Enable notifications for both **Left (0x00)** and **Right (0x01)** ports.
+- This tells the remote to notify the app when button states change.
+
+### 4️ - Start Notifications
+
+- Begin listening for button press and release notifications.
+- BLE sends button state packets when buttons are pressed or released.
+
+### 5️ - Handle Notifications
+
+- Filter incoming BLE packets to detect button events.
+- Decode and display which buttons are pressed or released.
+
+| Value | Meaning          |
+|-------|------------------|
+| 0xFF  | Minus (pressed)  |
+| 0x7F  | Center (neutral) |
+| 0x01  | Plus (pressed)   |
+| 0x00  | Released (no press) |
+
+### 6️ - Display Button Events
+
+- Button states are printed in a user-friendly format.
+- Example output: `Button event: Left + (Plus)`
+
+### 7️ - Clean Exit
+
+- On exit (Ctrl+C), stop notifications and clean up.
+- Disconnect from the remote safely.
+
+---
+
+## ✅ Summary
+
+- LEGO 88010 requires **proper input format setup** using `0x41` before sending button events.
+- **Both Left and Right ports** must be enabled for full button detection.
+- Notifications provide raw data + parsed button states live during operation.
+
+---
+
+## - Additional Notes
+
+- Tested and validated on LEGO 88010 (Handset / Powered Up Remote).
+- Designed for use with Python and the `bleak` library.
+- Includes debug mode for raw BLE packet inspection.
+
+---
+
+## -  Requirements
+
+- Python 3.7+
+- `bleak` library (`pip install bleak`)
+
+```bash
+pip install bleak
