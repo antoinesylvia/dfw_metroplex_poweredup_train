@@ -8,7 +8,7 @@ Lego Track Color Layout
 Yellow <--> Red <--> Blue <--> Green
 --------------
 2025:
-Started working on the PoweredUp Train remote, 88010. Created two scripts (lego_pair_88010_remote.py & lego_test_88010_remote_buttons.py) using some old code and raw data from 2 years ago, in addition to assistance from ChatGPT 4o and these repos:
+Started working on the PoweredUp Train remote, 88010. Created two scripts (lego_pair_88010_remote.py & lego_test_88010_remote_buttons.py) that will help you connect a Lego 88010 remote to a Pi via Bluetooth. These scripts are using some old code and raw data from 2 years ago, in addition to assistance from ChatGPT 4o and these repos:
 - https://github.com/larsgk/lego-handset/blob/main/lego-handset-driver.js
 - https://github.com/DanieleBenedettelli/TechnicMoveHub/blob/main/LEGO%20Technic%2042176%20RC%20Handset%2088010.py
 - https://github.com/pybricks/technical-info/blob/master/assigned-numbers.md
