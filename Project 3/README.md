@@ -89,3 +89,57 @@ This script (lego_test_88010_remote_buttons.py) provides a simple Python script 
 
 ```bash
 pip install bleak
+
+------------------------------
+# LEGO 88010 Remote — OS Level Pair & Launch Helper
+
+This helper script (lego_pair_88010_remote.py) automates pairing, trusting, and connecting to the LEGO 88010 Handset remote at the Bluetooth OS level before launching your main remote listening script.
+
+This is needed because LEGO remotes must be properly paired and connected before they begin sending button press notifications.  
+Without this step → `remote.py` will connect, but buttons **will not register**.
+
+---
+
+## - How It Works
+
+### 1️ - Power On Bluetooth
+
+- Turns on Bluetooth if disabled.
+
+### 2️ - Find the LEGO Remote
+
+- Checks if the remote is already saved in Bluetooth devices.
+- If not found → Scans for up to 30 seconds to discover it.
+
+### 3️ - Trust + Pair the Remote
+
+- **Trusts the device** so it connects automatically next time.
+- **Pairs the device** if not already paired.
+
+> Pairing is essential — without pairing, the LEGO 88010 will NOT send button data.
+
+### 4️ - Connect to the Remote
+
+- Ensures the remote is connected before launching your main script.
+- Keeps trying until connected.
+
+### 5️ - Launch the Button Listener (`remote.py`)
+
+- Once paired, trusted, and connected → runs `remote.py` which starts listening for button events.
+
+---
+
+## - When and How to Run This
+
+- Run **this helper script** first whenever the remote is off or unpaired.
+- If the LEGO remote has already been paired/trusted and powered on → this script will skip unnecessary steps and just ensure connection → then launch `remote.py`.
+
+✅ **Recommended Usage**
+
+- Each time you power cycle or re-pair the LEGO remote → run this script.
+- If your remote stays paired and trusted → you may skip running this sometimes, but running it ensures proper connection and avoids bugs.
+
+Requirements:
+
+- pip install pydbus
+
