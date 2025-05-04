@@ -15,11 +15,11 @@ Started working on the PoweredUp Train remote, 88010. Created two scripts (lego_
 
 # LEGO 88010 Remote — Debugger and Button Parser
 
-This project provides a simple Python script to connect to a LEGO 88010 Handset remote (also known as the Powered Up Remote) and read button presses using BLE (Bluetooth Low Energy).
+This script (lego_test_88010_remote_buttons.py) provides a simple Python script to connect to a LEGO 88010 Handset remote (also known as the Powered Up Remote) and read button presses using BLE (Bluetooth Low Energy).
 
 ---
 
-## 🚦 How It Works
+## - How It Works
 
 ### 1️ - Connect to the Remote
 
